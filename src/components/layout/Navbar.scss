@@ -1,0 +1,146 @@
+.navbar {
+  height: 100px;
+  width: 100%;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 40px;
+  box-sizing: border-box;
+  box-shadow: 3px 0px 20px rgba(0, 0, 0, 0.04);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+
+  /* Left section containing the logo and mobile menu icon */
+  .nav-left {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+    .logo {
+      width: 140px;
+    }
+  }
+  .mobile-menu-icon{
+    margin-left: 5px;
+    color: #213F7D;
+  }
+
+  /* Center section with the search bar */
+  .nav-center .search-bar {
+    display: flex;
+    width: 400px;
+    
+    // ... input and button styles
+    input {
+      width: 100%;
+      border: 1px solid rgba(33, 63, 125, 0.2);
+      border-right: none;
+      padding: 12px 20px;
+      font-size: 14px;
+      border-radius: 8px 0 0 8px;
+      &:focus { outline: none; }
+    }
+    .search-button {
+      background-color: #39CDCC;
+      border: none;
+      width: 56px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 0 8px 8px 0;
+      cursor: pointer;
+    }
+  }
+
+  /* Right section with docs, bell, and profile */
+  .nav-right {
+    display: flex;
+    align-items: center;
+    gap: 30px; // Increased gap for better spacing
+    color: #213F7D;
+    
+    // styles for docs-link, notification-icon, user-profile
+    .docs-link {
+      color: inherit;
+      font-size: 16px;
+      font-family: Roboto;
+      font-weight: 400;
+      line-height: 100%;
+      letter-spacing: 0%;
+      text-decoration-style: solid;
+      text-decoration-thickness: 0%;
+
+    }
+
+    .notification-icon { cursor: pointer; }    
+      .NotificationBell{
+        width: 26px;
+        height: 26px;
+        object-fit: cover;
+      }
+    .user-profile {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      cursor: pointer;
+      .avatar {
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        object-fit: cover;
+      }
+      .chevronDown{
+        width: 12px;
+      }
+      
+      .username {
+        font-weight: 500;
+        font-family: Work Sans, sans-serif;
+        font-size: 16px;
+       }
+    }
+  }
+}
+
+/* --- RESPONSIVENESS --- */
+/* Hamburger Icon: HIDDEN BY DEFAULT on desktop */
+.mobile-menu-icon {
+  display: none;
+  cursor: pointer;
+}
+
+/* TABLET VIEW: (Screens between 769px and 992px) */
+@media (max-width: 992px) {
+  .navbar {
+    padding: 0 20px;
+  }
+  .nav-center {
+    display: none; /* Hide search bar */
+  }
+  .nav-right .docs-link {
+    display: none; /* Hide "Docs" link */
+  }
+  .mobile-menu-icon {
+    display: block; /* Show hamburger on tablet */
+  }
+  .nav-left .logo {
+    display: none; /* Hide the logo completely on tablet */
+  }
+}
+
+/* MOBILE VIEW: (Screens 768px or smaller) */
+@media (max-width: 768px) {
+  .nav-left .logo {
+    display: none; /* Hide the logo completely on small mobile */
+  }
+  
+  .nav-right .user-profile .username {
+    display: none; /* Hide username */
+  }
+  .nav-right {
+    gap: 15px; // Reduce gap on mobile
+  }
+}

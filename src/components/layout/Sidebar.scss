@@ -1,0 +1,112 @@
+  .sidebar {
+    background-color: #ffffff;
+    border-right: 1px solid rgba(33, 63, 125, 0.06);
+    width: 240px;
+    //   position: fixed;
+    // left: 0;
+    margin-top: 100px;
+    padding-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    padding-top: 30px;
+    box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.04);
+    box-sizing: border-box;
+    
+    .sidebar-top {
+        margin-bottom: 20px;
+        
+        .switch-org { // Special style for the switch organization link
+            margin-bottom: 30px;
+            font-size: 16px;
+            color: #213F7D;
+        }
+    }
+
+    .nav-category {
+        font-size: 12px;
+        font-weight: 500;
+        color: #545F7D;
+        padding: 0 30px;
+        margin-top: 20px;
+        margin-bottom: 10px;
+    }
+
+    ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+    }
+
+  .nav-link {
+        display: flex;
+        align-items: center;
+        padding: 10px 30px;
+        color: #213F7D;
+        font-family: 'Work Sans';
+        font-style: normal;
+        font-weight: 400;
+        text-decoration: none;
+        font-size: 16px;
+        opacity: 0.8;
+        transition: background-color 0.3s, opacity 0.3s;
+
+        .nav-icon {
+        width: 16px;
+        height: 16px;
+        margin-right: 10px;
+        object-fit: contain;
+        }
+
+    &:hover {
+        background-color: #f3f5f8;
+        opacity: 1;
+    }
+
+    &.active {
+        background-color: rgba(57, 205, 204, 0.06);
+        border-left: 3px solid #39CDCC;
+        opacity: 1;
+        color: #213F7D;
+        font-weight: 500;
+        padding-left: 27px; // Adjust padding to account for the border
+    }
+  }
+}
+
+/* Sidebar Responsiveness */
+
+// .sidebar-header {
+
+// }
+
+.mobile-close-icon {
+    display: none; // Hidden on desktop
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+}
+
+// For Tablets and below
+@media (max-width: 992px) {
+    .sidebar {
+        display: none; // Hide the sidebar by default
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 280px;
+        height: 100%;
+        z-index: 2000; // Make sure it's on top of everything
+        transform: translateX(-100%);
+        transition: transform 0.3s ease-in-out;
+    }
+
+    .sidebar.open {
+        display: flex; // Show it when the 'open' class is added
+        transform: translateX(0);
+    }
+
+    .mobile-close-icon {
+        display: block; // Show the close button on mobile
+    }
+}
