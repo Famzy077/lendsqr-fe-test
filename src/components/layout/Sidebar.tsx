@@ -1,8 +1,9 @@
 import React from 'react';
 import './Sidebar.scss';
+import { useNavigate } from 'react-router-dom';
 import { X, ChevronDown } from 'lucide-react';
 
-// Import all your image assets
+// Import all image assets
 import briefcaseIcon from '/public/Images/Icons/bagIcon.png';
 import houseicon from '/public/Images/Icons/houseicon.png';
 import logo from '/public/Images/Icons/logoutIcon.png'
@@ -29,7 +30,7 @@ import auditIcon from '/public/Images/Icons/auditIcon.png';
 import systemMSGicon from '/public/Images/Icons/systemMSGicon.png';
 
 
-// --- Data Arrays for our Links (This part was perfect) ---
+// --- Data Arrays for Links ---
 const customerLinks = [
   { label: 'Users', icon: usersIcon, active: true },
   { label: 'Guarantors', icon: usersGroupIcon },
@@ -63,10 +64,15 @@ interface SidebarProps {
   isOpen: boolean;
   onClose: () => void;
 }
-
 const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
   // Create the dynamic class name based on the isOpen prop
   const sidebarClassName = `sidebar ${isOpen ? 'open' : ''}`;
+  
+  // Handle logout
+  const navigate = useNavigate();
+  const handleLogOut = () => {
+    navigate('/');
+  }
 
   return (
     <div className={sidebarClassName}>
@@ -81,7 +87,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
           <span>Dashboard</span>
         </a>
 
-        {/* --- NEW HEADER FOR MOBILE VIEW --- */}
+        {/* --- HEADER FOR MOBILE VIEW --- */}
         <div className="mobile-close-icon">
           <div className='xIcon'>
             <img src="/public/Images/LendsqrLogo.png" alt="" />
@@ -133,7 +139,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
         <footer className="sidebar-footer">
           <div className="nav-footer">
             <img src={logo} alt="logout-icon" className="nav-icon" />
-            <button>Logout</button>
+            <button onClick={handleLogOut}>Logout</button>
           </div>
           <span className="version">v1.2.0</span>
         </footer>

@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import axios from 'axios';
-import { Loader, ArrowLeft, Star } from 'lucide-react';
+import { Loader, ArrowLeft } from 'lucide-react';
 import './UserDetails.scss';
 import type { User } from '../../hooks/UserTypes';
+import lightStar from '/public/Images/Icons/lightStarIcon.png';
+import thickRateStar from '/public/Images/Icons/thickRateStar.png';
 
 // A small helper component to keep the code clean and DRY (Don't Repeat Yourself)
 const InfoDetail = ({ label, value }: { label: string, value: string | number }) => (
@@ -23,7 +25,7 @@ const UserDetails = () => {
     const fetchUserDetails = async () => {
       try {
         setLoading(true);
-        const response = await axios.get(`https://lendsqr-mock-api.onrender.com/users/${userId}`);
+        const response = await axios.get(`/api/users/${userId}`);
         setUser(response.data);
         setError(null);
       } catch (err) {
@@ -82,9 +84,23 @@ const UserDetails = () => {
           <div className="tier-section">
             <p>User's Tier</p>
             <div className="stars">
-                <Star fill={user.financialInfo.userTier >= 1 ? "#E9B200" : "#E0E0E0"} strokeWidth={0} />
-                <Star fill={user.financialInfo.userTier >= 2 ? "#E9B200" : "#E0E0E0"} strokeWidth={0} />
-                <Star fill={user.financialInfo.userTier >= 3 ? "#E9B200" : "#E0E0E0"} strokeWidth={0} />
+              {Array.from({ length: 3 }).map((_, idx) =>
+              user.financialInfo.userTier > idx ? (                
+                <img
+                key={idx}
+                src={thickRateStar}
+                alt="Unfilled star"
+                className="star-icon"
+                />
+              ) : (
+                <img
+                key={idx}
+                src={lightStar}
+                alt="Unfilled star"
+                className="star-icon"
+                />
+              )
+              )}
             </div>
           </div>
           <div className="balance-section">

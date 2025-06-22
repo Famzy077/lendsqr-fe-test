@@ -68,3 +68,10 @@
     }
   }
 }
+
+@media (max-width: 768px) {
+  .filter-popover {
+    width: 80%;
+    top: 62rem; 
+  }
+}

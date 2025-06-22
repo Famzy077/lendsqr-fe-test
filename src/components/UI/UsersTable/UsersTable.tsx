@@ -131,7 +131,7 @@ const UsersTable: React.FC<{ users: User[] }> = ({ users }) => {
               <option key={pageSize} value={pageSize}>{pageSize}</option>
             ))}
           </select>
-          <span>out of {table.getRowCount()}</span>
+          <span className='paginationNumber'>out of {table.getRowCount()}</span>
         </div>
         <div className="pagination-nav">
           <button onClick={() => table.previousPage()} disabled={!table.getCanPreviousPage()} className="nav-arrow">

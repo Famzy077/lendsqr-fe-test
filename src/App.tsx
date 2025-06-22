@@ -5,12 +5,22 @@ import Navbar from './components/layout/Navbar';
 import './index.scss';
 const App = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const appLayoutClassName = `app-layout ${isMobileMenuOpen ? 'mobile-menu-active' : ''}`;
 
   return (
-    <>
+    <div className={appLayoutClassName}>
       <Navbar onMenuClick={() => setIsMobileMenuOpen(true)} />
 
-      <div className="app-container">
+        {isMobileMenuOpen && (
+          <div 
+            className="mobile-menu-backdrop" 
+            onClick={() => setIsMobileMenuOpen(false)}
+          >
+
+          </div>
+        )}
+
+      <div  className="app-container">
         <Sidebar
           isOpen={isMobileMenuOpen}
           onClose={() => setIsMobileMenuOpen(false)}
@@ -20,7 +30,7 @@ const App = () => {
           <Outlet />
         </main>
       </div>
-    </>
+    </div>
   );
 };
 

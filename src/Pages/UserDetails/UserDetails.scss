@@ -105,7 +105,11 @@
       .stars {
         display: flex;
         gap: 5px;
-        color: #E9B200; // Color for filled stars
+        color: #E9B200;
+        .star-icon{
+          width: 21px;
+          height: 21px;
+        }
       }
     }
 
@@ -180,10 +184,13 @@
     margin-top: 80px;
 
     .profile-header {
+      gap: 15px !important;
       flex-wrap: wrap;
 
-      .tier-section {
+      .tier-section,  .balance-section {
+        padding: 0 4px !important;
         border: none !important;
+        height: 49px !important;
       }
     }
 
@@ -192,9 +199,15 @@
       align-items: flex-start;
 
       .action-buttons {
+        width: 100%;
+        align-items: start;
         margin-top: 20px;
         flex-direction: column;
         gap: 20px;
+        
+    .activate-btn {
+      width: 162px;
+    }
       }
     }
 
@@ -203,8 +216,9 @@
     }
 
     .details-tabs {
-      flex-wrap: wrap;
-      gap: 15px;
+      // flex-wrap: wrap;
+      gap: 10px;
+      flex-direction: column;
       align-items: flex-start;
     }
   }

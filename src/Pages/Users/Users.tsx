@@ -23,7 +23,8 @@ const Users = () => {
       try {
         setLoading(true);
         // Fetch users from the mock API
-        const response = await axios.get('https://lendsqr-mock-api.onrender.com/users');
+        // const response = await axios.get('https://lendsqr-mock-api.onrender.com/users');
+        const response = await axios.get('/api/users');
         setUsers(response.data);
         setError(null);
       } catch (err) {

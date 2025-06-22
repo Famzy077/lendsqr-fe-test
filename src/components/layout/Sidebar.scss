@@ -1,96 +1,98 @@
-  .sidebar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 254px;
-    height: 100vh;
-    overflow-y: auto;
-    background-color: #ffffff;
-    border-right: 1px solid rgba(33, 63, 125, 0.06);
-    padding-top: 130px;
-    padding-bottom: 20px;
-    box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.04);
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
-    scrollbar-width: none;
-    
-    .sidebar-top {
-        margin-bottom: 20px;
-        
-        .switch-org { // Special style for the switch organization link
-            margin-bottom: 30px;
-            font-size: 16px;
-            color: #213F7D;
-        }
-    }
-
-    .nav-category {
-        font-size: 12px;
-        font-weight: 500;
-        color: #545F7D;
-        padding: 0 30px;
-        margin-top: 20px;
-        margin-bottom: 10px;
-    }
-    .sidebar-footer{
-        border-top: 1.9px  solid rgba(0, 0, 0, 0.06);
-        padding: 0 30px;
-        margin-top: 20px;
-        padding-top: 20px;
-        margin-bottom: 10px;
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 254px;
+  height: 100vh;
+  overflow-y: auto;
+  background-color: #ffffff;
+  border-right: 1px solid rgba(33, 63, 125, 0.06);
+  padding-bottom: 20px;
+  box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.04);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  scrollbar-width: none;
+  
+  .sidebar-top {
+      padding-top: 100px;
+      margin-bottom: 20px;
+      
+      .switch-org {
+        margin-bottom: 30px;
+        margin-top: 40px;
+        font-size: 16px;
         color: #213F7D;
-        font-size: 14px;
-        .nav-footer{
-            align-items: center;
-            display: flex;
-            gap: 10px;
-            margin-bottom: 40px;
-            img{
-                width: 20px;
-                height: 20px;
-                object-fit: contain;
-            }
-            button{
-                color: #213F7D;
-                font-size: 14px;
-                font-weight: 600;
-                border: none;
-                background: transparent;
-            }
-        }
-        .version{
-            font-size: 19px;
-            color: #545F7D;
-            margin-top: 10px;
-        }
-    }
+      }
+  }
 
-    ul {
-        list-style-type: none;
-        padding: 0;
-        margin: 0;
-    }
+  .nav-category {
+      font-size: 12px;
+      font-weight: 500;
+      color: #545F7D;
+      padding: 0 30px;
+      margin-top: 20px;
+      margin-bottom: 10px;
+  }
+  .sidebar-footer{
+      border-top: 1.9px  solid rgba(0, 0, 0, 0.06);
+      padding: 0 30px;
+      margin-top: 20px;
+      padding-top: 20px;
+      margin-bottom: 10px;
+      color: #213F7D;
+      font-size: 14px;
+      .nav-footer{
+          align-items: center;
+          display: flex;
+          gap: 10px;
+          margin-bottom: 40px;
+          img{
+              width: 20px;
+              height: 20px;
+              object-fit: contain;
+          }
+          button{
+            cursor: pointer;
+              color: #213F7D;
+              font-size: 14px;
+              font-weight: 600;
+              border: none;
+              background: transparent;
+          }
+      }
+      .version{
+          font-size: 19px;
+          color: #545F7D;
+          margin-top: 10px;
+      }
+  }
+
+  ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+  }
 
   .nav-link {
-        display: flex;
-        align-items: center;
-        padding: 10px 30px;
-        color: #213F7D;
-        font-family: 'Work Sans';
-        font-style: normal;
-        font-weight: 400;
-        text-decoration: none;
-        font-size: 16px;
-        opacity: 0.8;
-        transition: background-color 0.3s, opacity 0.3s;
+      display: flex;
+      align-items: center;
+      padding: 10px 30px;
+      color: #213F7D;
+      font-family: 'Work Sans';
+      font-style: normal;
+      font-weight: 400;
+      text-decoration: none;
+      font-size: 16px;
+      opacity: 0.8;
+      transition: background-color 0.3s, opacity 0.3s;
 
-        .nav-icon {
-        width: 16px;
-        height: 16px;
-        margin-right: 10px;
-        object-fit: contain;
-        }
+      .nav-icon {
+      width: 16px;
+      height: 16px;
+      margin-right: 10px;
+      object-fit: contain;
+      }
 
     &:hover {
         background-color: #f3f5f8;
@@ -103,24 +105,56 @@
         opacity: 1;
         color: #213F7D;
         font-weight: 500;
-        padding-left: 27px; // Adjust padding to account for the border
+        padding-left: 27px;
     }
   }
 }
 
 /* Sidebar Responsiveness */
 .mobile-close-icon {
-    display: none; // Hidden on desktop
-    position: absolute;
-    padding: 10px 0;
-    left: 0;
-    top: 20px;
-    width: 100%; 
-    cursor: pointer;
+    display: none; 
+}
+
+// For Tablets and below
+@media (max-width: 992px) {
+    .sidebar {
+        right: auto;
+        left: 0;
+        transform: translateX(100%);
+        display: none;
+        position: fixed;
+        top: 0;
+        width: 280px;
+        height: 100%;
+        padding-top: 0;
+        z-index: 2000;
+        transition: transform 4s ease-in-out;
+    }
+
+    .sidebar.open {
+        display: flex;
+        transform: translateX(0);
+        box-shadow: -5px 0px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .sidebar.open .sidebar-top {
+        padding-top: 80px; /* Make space for the absolute-positioned close icon */
+    }
+
+  .mobile-close-icon {
+        display: flex; 
+        justify-content: space-between;
+        align-items: center;
+        position: absolute;
+        padding: 20px 15px;
+        top: 20px;
+        left: 0;
+        cursor: pointer;
 
     .xIcon{
         display: flex;
-        justify-content: space-around;
+        width: 250px;
+        justify-content: space-between;
         color: #213F7D;
         img{
             width: 130px;
@@ -129,27 +163,4 @@
     }
 
 }
-
-// For Tablets and below
-@media (max-width: 992px) {
-    .sidebar {
-        display: none; // Hide the sidebar by default
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 280px;
-        height: 100%;
-        z-index: 2000; // Make sure it's on top of everything
-        transform: translateX(-100%);
-        transition: transform 0.3s ease-in-out;
-    }
-
-    .sidebar.open {
-        display: flex; // Show it when the 'open' class is added
-        transform: translateX(0);
-    }
-
-    .mobile-close-icon {
-        display: block; // Show the close button on mobile
-    }
 }

@@ -2,7 +2,7 @@
     background-color: #fff;
     padding: 20px;
     border: 1px solid rgba(33, 63, 125, 0.06);
-    box-shadow: 3px 5px 20px rgba(0, 0, 0, 0.04);
+    box-shadow: lid red 5px 20px rgba(0, 0, 0, 0.04);
     border-radius: 4px;
     overflow-x: auto; // Allows horizontal scrolling on small screens
 
@@ -11,7 +11,7 @@
     .table-container { // wrapper for table + pagination
       background-color: #fff;
       border: 1px solid rgba(33, 63, 125, 0.06);
-      box-shadow: 3px 5px 20px rgba(0, 0, 0, 0.04);
+      box-shadow: lid red 5px 20px rgba(0, 0, 0, 0.04);
       border-radius: 4px;
     }
     table {
@@ -136,13 +136,15 @@
 
 // --- Responsive Design ---
 @media (max-width: 1200px) {
-  
-  .table-wrapper{
+    .table-wrapper{
       ::-webkit-scrollbar { display: block; } // Hides the scrollbar for a cleaner look
       scrollbar-width: block;// Hides the scrollbar for a cleaner look
   }
 }
 @media (max-width: 768px) {
+    .paginationNumber{
+      display: none;
+    }
   .table-wrapper{
     ::-webkit-scrollbar { display: block; } // Hides the scrollbar for a cleaner look
     scrollbar-width: block;// Hides the scrollbar for a cleaner look
