@@ -23,7 +23,7 @@ const UserDetails = () => {
     const fetchUserDetails = async () => {
       try {
         setLoading(true);
-        const response = await axios.get(`http://localhost:3001/users/${userId}`);
+        const response = await axios.get(`https://lendsqr-mock-api.onrender.com/users/${userId}`);
         setUser(response.data);
         setError(null);
       } catch (err) {
@@ -72,25 +72,25 @@ const UserDetails = () => {
 
       <div className="user-info-card">
         <div className="profile-header">
-            <div className="avatar">
-                <img src={user.avatar} alt={`${user.username}'s avatar`} />
+          <div className="avatar">
+            <img src={user.avatar} alt={`${user.username}'s avatar`} />
+          </div>
+          <div className="name-section">
+            <h2>{user.personalInfo.fullName}</h2>
+            <p>{user.id}</p>
+          </div>
+          <div className="tier-section">
+            <p>User's Tier</p>
+            <div className="stars">
+                <Star fill={user.financialInfo.userTier >= 1 ? "#E9B200" : "#E0E0E0"} strokeWidth={0} />
+                <Star fill={user.financialInfo.userTier >= 2 ? "#E9B200" : "#E0E0E0"} strokeWidth={0} />
+                <Star fill={user.financialInfo.userTier >= 3 ? "#E9B200" : "#E0E0E0"} strokeWidth={0} />
             </div>
-            <div className="name-section">
-                <h2>{user.personalInfo.fullName}</h2>
-                <p>{user.id}</p>
-            </div>
-            <div className="tier-section">
-                <p>User's Tier</p>
-                <div className="stars">
-                    <Star fill={user.financialInfo.userTier >= 1 ? "#E9B200" : "#E0E0E0"} strokeWidth={0} />
-                    <Star fill={user.financialInfo.userTier >= 2 ? "#E9B200" : "#E0E0E0"} strokeWidth={0} />
-                    <Star fill={user.financialInfo.userTier >= 3 ? "#E9B200" : "#E0E0E0"} strokeWidth={0} />
-                </div>
-            </div>
-            <div className="balance-section">
-                <h2>₦{Number(user.financialInfo.accountBalance).toLocaleString()}</h2>
-                <p>{user.financialInfo.accountNumber}/{user.financialInfo.bankName}</p>
-            </div>
+          </div>
+          <div className="balance-section">
+            <h2>₦{Number(user.financialInfo.accountBalance).toLocaleString()}</h2>
+            <p>{user.financialInfo.accountNumber}/{user.financialInfo.bankName}</p>
+          </div>
         </div>
         <nav className="details-tabs">
             <a href="#" className="tab-link active">General Details</a>

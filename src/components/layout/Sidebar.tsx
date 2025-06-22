@@ -68,7 +68,6 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
   const sidebarClassName = `sidebar ${isOpen ? 'open' : ''}`;
 
   return (
-    // <-- THE MAIN FIX: Apply the dynamic class name here
     <div className={sidebarClassName}>
       <div className="sidebar-top">
         <a href="#" className="nav-link switch-org">
@@ -80,9 +79,13 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
           <img src={houseicon} alt="Dashboard Icon" className="nav-icon" />
           <span>Dashboard</span>
         </a>
-        {/* The close icon is now correctly part of the component */}
-        <div className="mobile-close-icon" onClick={onClose}>
-          <X size={28} />
+
+        {/* --- NEW HEADER FOR MOBILE VIEW --- */}
+        <div className="mobile-close-icon">
+          <div className='xIcon'>
+            <img src="/public/Images/LendsqrLogo.png" alt="" />
+            <X  onClick={onClose} size={30} />
+          </div>
         </div>
       </div>
 
@@ -125,6 +128,14 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
             </li>
           ))}
         </ul>
+
+        <footer className="sidebar-footer">
+          <div className="nav-footer">
+            <img src="/public/Images/Icons/logoutIcon.png" alt="logout-icon" className="nav-icon" />
+            <button>Logout</button>
+          </div>
+          <span className="version">v1.2.0</span>
+        </footer>
       </nav>
     </div>
   );

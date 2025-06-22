@@ -22,12 +22,12 @@ const Users = () => {
     const fetchUsers = async () => {
       try {
         setLoading(true);
-        // Fetch data from your local json-server
-        const response = await axios.get('http://localhost:3001/users');
+        // Fetch users from the mock API
+        const response = await axios.get('https://lendsqr-mock-api.onrender.com/users');
         setUsers(response.data);
         setError(null);
       } catch (err) {
-        setError('Failed to fetch users. Please make sure your local server is running.');
+        setError('Failed to fetch users. Please make sure your server is running.');
         console.error(err);
       } finally {
         setLoading(false);
@@ -82,7 +82,6 @@ const Users = () => {
       </div>
         
       <div className="users-table-container">
-        {loading && <p>Loading users...</p>}
         {error && <p className="error-message">{error}</p>}
         {loading && (
           <div className="loading-container">

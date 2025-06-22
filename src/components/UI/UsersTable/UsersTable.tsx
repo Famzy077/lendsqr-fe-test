@@ -85,7 +85,7 @@ const UsersTable: React.FC<{ users: User[] }> = ({ users }) => {
     columns,
     getCoreRowModel: getCoreRowModel(),
     getPaginationRowModel: getPaginationRowModel(),
-    initialState: { pagination: { pageSize: 10 } },
+    initialState: { pagination: { pageSize: 11 } },
     meta: { activeActionMenu, setActiveActionMenu },
   });
 
@@ -127,7 +127,7 @@ const UsersTable: React.FC<{ users: User[] }> = ({ users }) => {
         <div className="pagination-info">
           <span>Showing</span>
           <select value={table.getState().pagination.pageSize} onChange={e => table.setPageSize(Number(e.target.value))}>
-            {[10, 20, 30, 50, 100].map(pageSize => (
+            {[11, 20, 30].map(pageSize => (
               <option key={pageSize} value={pageSize}>{pageSize}</option>
             ))}
           </select>
