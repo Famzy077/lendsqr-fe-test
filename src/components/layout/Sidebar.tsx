@@ -5,6 +5,7 @@ import { X, ChevronDown } from 'lucide-react';
 // Import all your image assets
 import briefcaseIcon from '/public/Images/Icons/bagIcon.png';
 import houseicon from '/public/Images/Icons/houseicon.png';
+import logo from '/public/Images/Icons/logoutIcon.png'
 // CUSTOMERS
 import usersGroupIcon from '/public/Images/Icons/Users3.png';
 import usersIcon from '/public/Images/Icons/usersIcon.png';
@@ -131,7 +132,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
 
         <footer className="sidebar-footer">
           <div className="nav-footer">
-            <img src="/public/Images/Icons/logoutIcon.png" alt="logout-icon" className="nav-icon" />
+            <img src={logo} alt="logout-icon" className="nav-icon" />
             <button>Logout</button>
           </div>
           <span className="version">v1.2.0</span>

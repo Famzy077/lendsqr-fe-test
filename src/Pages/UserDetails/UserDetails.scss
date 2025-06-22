@@ -50,14 +50,12 @@
     }
 
     .blacklist-btn {
-      // width: 51%;
       border: 1px solid #E4033B;
       color: #E4033B;
       background: transparent;
     }
 
     .activate-btn {
-      // width: 47%;
       border: 1px solid #39CDCC;
       color: #39CDCC;
       background: transparent;
@@ -206,6 +204,7 @@
 
     .details-tabs {
       flex-wrap: wrap;
+      gap: 15px;
       align-items: flex-start;
     }
   }
