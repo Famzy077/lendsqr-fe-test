@@ -1,17 +1,3 @@
-// import { defineConfig } from 'vite'
-// import react from '@vitejs/plugin-react'
-
-// // Vite configuration for a React application
-// export default defineConfig({
-//   plugins: [react()],
-//   build: {
-//     outDir: 'dist'
-//   },
-//   server: {
-//     // No need for historyApiFallback; Vite handles SPA fallback automatically
-//   }
-// })
-
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 
@@ -24,7 +10,7 @@ export default defineConfig({
       '/api': {
         target: 'http://localhost:3001',
         changeOrigin: true,
-        rewrite: (path) => path.replace(/^\/api/, ''), // removes /api from the start of the path
+        rewrite: (path) => path.replace(/^\/api/, ''),
       },
     }
   }

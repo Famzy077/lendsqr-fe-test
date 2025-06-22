@@ -2,6 +2,7 @@ import React from 'react';
 import './Sidebar.scss';
 import { useNavigate } from 'react-router-dom';
 import { X, ChevronDown } from 'lucide-react';
+import lendsqrLogo from '/public/Images/LendsqrLogo.png'
 
 // Import all image assets
 import briefcaseIcon from '/public/Images/Icons/bagIcon.png';
@@ -90,7 +91,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
         {/* --- HEADER FOR MOBILE VIEW --- */}
         <div className="mobile-close-icon">
           <div className='xIcon'>
-            <img src="/public/Images/LendsqrLogo.png" alt="" />
+            <img src={lendsqrLogo} alt="lendsqrLogo lol" />
             <X  onClick={onClose} size={30} />
           </div>
         </div>
