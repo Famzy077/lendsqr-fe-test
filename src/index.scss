@@ -49,6 +49,24 @@
   animation: fadeIn 0.3s ease-in-out;
 }
 
+.error-page{
+  border: 2px solid red;
+  height: 100vh;
+  display: inline-block;
+  place-content: center;
+  width: 100%;
+  place-items: center;
+  
+  h1{
+    font-size: 50px;
+    text-align: center;
+
+    span{
+      color: red;
+    }
+  }
+}
+
 @keyframes fadeIn {
   from { opacity: 0; }
   to { opacity: 1; }
