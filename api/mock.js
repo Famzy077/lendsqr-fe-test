@@ -1,10 +1,10 @@
-const fs = require('fs');
-const path = require('path');
+import { readFile } from 'fs/promises';
+import path from 'path';
+import { fileURLToPath } from 'url';
 
-module.exports = (req, res) => {
-  const data = JSON.parse(
-    fs.readFileSync(path.join(__dirname, 'db.json'), 'utf-8')
-  );
-
-  res.status(200).json(data);
+export default async (req, res) => {
+  const __dirname = path.dirname(fileURLToPath(import.meta.url));
+  const data = await readFile(path.join(__dirname, 'db.json'), 'utf-8');
+  res.setHeader('Content-Type', 'application/json');
+  res.status(200).end(data);
 };
