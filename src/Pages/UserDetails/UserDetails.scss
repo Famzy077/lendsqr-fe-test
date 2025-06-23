@@ -1,6 +1,10 @@
 .user-details-page {
   color: #213F7D;
-  margin-top: 100px;
+  margin-top: 100px;font-family: Work Sans, sans-serif;
+font-weight: 600;
+line-height: 100%;
+letter-spacing: 0px;
+
 
   .back-link {
     display: flex;
@@ -113,7 +117,7 @@
       }
     }
 
-    .details-tabs {
+    .details-tabs  {
       margin-top: 30px;
       display: flex;
       justify-content: space-between;
@@ -126,6 +130,11 @@
           color: #39CDCC;
           border-bottom: 2px solid #39CDCC;
         }
+      }
+      button{
+      font-size: 15px;
+        background-color: transparent;
+        border: none;
       }
     }
   }
