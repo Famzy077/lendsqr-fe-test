@@ -28,7 +28,7 @@ const Users = () => {
     queryFn: fetchUsers,
     onSuccess: (data) => {
       try {
-        console.log("Saving fetched user data to localStorage...");
+        // console.log("Saving fetched user data to localStorage...");
         // I use JSON.stringify because localStorage can only store strings.
         localStorage.setItem('allUsersData', JSON.stringify(data));
       } catch (e) {
