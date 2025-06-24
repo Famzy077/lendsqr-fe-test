@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import toast from 'react-hot-toast';
 import './Login.scss'
-import SignUpImage from '/public/Images/SignUpImage.png';
+import SignInImage from '/public/Images/SignlogInImages.png';
 import LendsqrLogo from '/public/Images/LendsqrLogo.png';
 
 const Login = () => {
@@ -30,7 +30,7 @@ const Login = () => {
     <div className="login-page">
       <div className="left-section">
         <img src={LendsqrLogo} alt="Lendsqr Logo" className="logo" />
-        <img src={SignUpImage} alt="Sign In Illustration" className="illustration" />
+        <img src={SignInImage} alt="Sign In Illustration" className="illustration" />
       </div>
       <div className="right-section">
         <div className="login-form">
